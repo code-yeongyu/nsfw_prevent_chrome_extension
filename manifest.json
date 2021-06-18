@@ -2,7 +2,7 @@
   "name": "NSFW_PREVENTION",
   "version": "0.1",
   "manifest_version" : 2,
-  "description": "Censor some bad images!",
+  "description": "YouMo: Censor some bad images!",
   	"content_scripts": [
 		{
 			"matches": [
