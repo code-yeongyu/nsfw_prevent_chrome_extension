@@ -1,7 +1,5 @@
-console.log("the script loaded")
-
-const NSFW_URL = "http://localhost:5000/upload/files"
-const REPLACED_IDENTIFIER = "localhost"
+const DOMAIN = "http://localhost"
+const NSFW_URL = `${DOMAIN}/upload/files`
 
 function getDataUrl(img) {
     // Create empty canvas to get blob
