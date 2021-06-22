@@ -44,6 +44,10 @@ function requestToServer(formdata) {
             console.log(`${count} images replaced!`)
         })
 }
+
+function getImages() {
+    return document.querySelectorAll("img")
+}
 function replaceAllImages() {
     const images = document.querySelectorAll("img")
     console.log("selected images")
