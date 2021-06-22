@@ -24,6 +24,26 @@ function b64toBlob(dataURI) {
     return new Blob([ab], { type: "image/jpeg" })
 }
 
+function requestToServer(formdata) {
+    const requestOptions = {
+        method: "POST",
+        body: formdata,
+        mode: "cors",
+    }
+    fetch(NSFW_URL, requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+            console.log("got response")
+            let count = 0
+            for (let i = 0; i < result.length; i++) {
+                if (result[i].unsafe) {
+                    data[i].element.src = result[i].url
+                    count += 1
+                }
+            }
+            console.log(`${count} images replaced!`)
+        })
+}
 function replaceAllImages() {
     const images = document.querySelectorAll("img")
     console.log("selected images")
