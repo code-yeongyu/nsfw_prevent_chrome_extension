@@ -48,6 +48,11 @@ function requestToServer(formdata) {
 function getImages() {
     return document.querySelectorAll("img")
 }
+
+function getImagesLength() {
+    return getImages().length
+}
+
 function replaceAllImages() {
     const images = document.querySelectorAll("img")
     console.log("selected images")
