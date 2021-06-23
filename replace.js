@@ -52,14 +52,14 @@ function getImagesLength() {
 }
 
 function replaceAllImages() {
-    const images = document.querySelectorAll("img")
+    const images = getImages()
     console.log("selected images")
 
     const formdata = new FormData()
     const data = []
 
     for (image of images) {
-        if (image.src.includes(REPLACED_IDENTIFIER)) {
+        if (image.src.includes(DOMAIN)) {
             // if REPLACED_IDENTIFIER in image.src
             continue
         }
@@ -69,11 +69,8 @@ function replaceAllImages() {
         formdata.append("file[]", blob, Date.now() + ".jpg")
         data.push({ element: image, blob: blob })
     }
-    console.log("converted images into blob")
-
-    const requestOptions = {
-        method: "POST",
-        body: formdata,
+    console.log(`converted ${data.length} images into blob`)
+    requestToServer(formdata)
     }
 
     fetch(NSFW_URL, requestOptions)
