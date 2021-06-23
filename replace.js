@@ -83,4 +83,4 @@ function replaceIfNewImageLoaded() {
     }
 }
 
-replaceAllImages()
+setTimeout(replaceIfNewImageLoaded, 500)
