@@ -73,18 +73,14 @@ function replaceAllImages() {
     requestToServer(formdata)
     }
 
-    fetch(NSFW_URL, requestOptions)
-        .then((response) => response.json())
-        .then((result) => {
-            console.log("got response")
-            for (let i = 0; i < result.length; i++) {
-                if (result[i].unsafe) {
-                    data[i].element.src = result[i].url
-                }
-            }
-            console.log("replaced!")
+let images_length = 0
+
+function replaceIfNewImageLoaded() {
+    const images = getImagesLength()
+    if (images > images_length) {
+        images = getImagesLength()
             replaceAllImages()
-        })
+    }
 }
 
 replaceAllImages()
