@@ -71,7 +71,7 @@ function replaceAllImages() {
     }
     console.log(`converted ${data.length} images into blob`)
     requestToServer(formdata)
-    }
+}
 
 let images_length = 0
 
@@ -79,7 +79,7 @@ function replaceIfNewImageLoaded() {
     const images = getImagesLength()
     if (images > images_length) {
         images = getImagesLength()
-            replaceAllImages()
+        replaceAllImages()
     }
 }
 
